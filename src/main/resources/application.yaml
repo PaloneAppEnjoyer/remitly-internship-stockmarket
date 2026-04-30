@@ -1,0 +1,10 @@
+ktor:
+  deployment:
+    port: 8080
+  application:
+    modules:
+      - plugins.SerializationKt.configureSerialization
+      - plugins.KoinKt.configureKoin
+      - plugins.DatabasesKt.configureDatabase
+      - plugins.StatusPagesKt.configureStatusPages
+      - plugins.RoutingKt.configureRouting
