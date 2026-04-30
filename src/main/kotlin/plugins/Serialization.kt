@@ -1,11 +1,9 @@
 package plugins
 
-import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.*
-import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 
 fun Application.configureSerialization() {
