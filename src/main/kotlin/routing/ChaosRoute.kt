@@ -5,6 +5,8 @@ import io.ktor.server.routing.post
 
 fun Route.chaosRoute(){
     post("/chaos"){
-        kotlin.system.exitProcess(1)
+        Thread{
+            kotlin.system.exitProcess(1)
+        }.start()
     }
 }

@@ -6,7 +6,6 @@ import io.ktor.server.application.*
 import org.jetbrains.exposed.v1.jdbc.Database
 import org.jetbrains.exposed.v1.jdbc.SchemaUtils
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
-import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import repository.tables.AuditLogsTable
 import repository.tables.BankStocksTable
 import repository.tables.WalletStocksTable
@@ -14,10 +13,11 @@ import repository.tables.WalletsTable
 
 suspend fun Application.configureDatabase() {
     val config = HikariConfig().apply {
-        jdbcUrl = "jdbc:postgresql://localhost:5432/stockmarket_db"
+        jdbcUrl = System.getenv("DB_URL") ?: "jdbc:postgresql://localhost:5432/stockmarket_db"
         driverClassName = "org.postgresql.Driver"
-        username = "admin"
-        password = "admin_password"
+        username = System.getenv("DB_USER") ?: "admin"
+        password = System.getenv("DB_PASSWORD") ?: "admin_password"
+
         maximumPoolSize = 10
         isAutoCommit = false
         transactionIsolation = "TRANSACTION_READ_COMMITTED"
