@@ -7,4 +7,5 @@ ktor:
       - plugins.KoinKt.configureKoin
       - plugins.DatabasesKt.configureDatabase
       - plugins.StatusPagesKt.configureStatusPages
+      - plugins.CallLoggingKt.configureCallLogging
       - plugins.RoutingKt.configureRouting

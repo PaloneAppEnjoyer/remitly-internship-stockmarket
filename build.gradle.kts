@@ -34,6 +34,7 @@ dependencies {
     implementation(libs.exposed.jdbc)
     implementation(libs.exposed.dao)
     implementation(libs.hikaricp)
+    implementation(libs.jackson)
 
     testImplementation(kotlin("test"))
     testImplementation(ktorLibs.server.testHost)
